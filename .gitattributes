@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+*.js diff=javascript
+*.json diff=json
+
+/.github export-ignore
+CHANGELOG.md export-ignore
+.styleci.yml export-ignore
+README.md export-ignore
+Dockerfile export-ignore
+docker-compose.yml export-ignore
+Makefile export-ignore

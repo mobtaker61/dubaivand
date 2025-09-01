@@ -1,0 +1,63 @@
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env.local
+.env.test
+.env.example
+
+# IDE files
+.DS_Store
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+Thumbs.db
+
+# Dependencies
+/node_modules
+/vendor
+/auth.json
+
+# Build files
+/public/build
+/public/hot
+
+# Storage
+/public/storage
+/storage/*.key
+/storage/pail
+
+# Laravel specific
+Homestead.json
+Homestead.yaml
+
+# DubaiVand specific
+/storage/app/public/articles
+/storage/app/public/categories
+
+.cursor
+.editorconfig
+.styleci.yml
+.phpunit.result.cache
+.phpunit.cache
+.phpunit.cache.legacy
+.phpunit.cache.legacy.legacy
+
+
+package-lock.json
+composer.lock
+Dockerfile
+docker-compose.yml
+
+tests

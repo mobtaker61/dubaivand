@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "dubai-vand-api-collection",
+		"name": "DubaiVand API",
+		"description": "API برای مدیریت مقالات و دسته‌بندی‌های سایت دبی‌وند",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "Get All Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles"],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "15",
+									"description": "تعداد مقالات در هر صفحه"
+								},
+								{
+									"key": "category",
+									"value": "akhbar-dby",
+									"description": "فیلتر بر اساس دسته‌بندی (slug)"
+								},
+								{
+									"key": "search",
+									"value": "دبی",
+									"description": "جستجو در عنوان، محتوا و خلاصه"
+								},
+								{
+									"key": "status",
+									"value": "published",
+									"description": "فیلتر بر اساس وضعیت (draft, published, archived)"
+								},
+								{
+									"key": "featured",
+									"value": "true",
+									"description": "فیلتر مقالات ویژه"
+								},
+								{
+									"key": "breaking",
+									"value": "true",
+									"description": "فیلتر اخبار فوری"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Article by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create New Article",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "عنوان مقاله جدید",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "<p>محتوای مقاله جدید</p>",
+									"type": "text"
+								},
+								{
+									"key": "excerpt",
+									"value": "خلاصه مقاله جدید",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "featured_image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "source_url",
+									"value": "https://example.com",
+									"type": "text"
+								},
+								{
+									"key": "source_name",
+									"value": "منبع خبر",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "published",
+									"type": "text"
+								},
+								{
+									"key": "is_featured",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "is_breaking",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles"]
+						}
+					}
+				},
+				{
+					"name": "Update Article",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"عنوان به‌روزرسانی شده\",\n  \"content\": \"<p>محتوای به‌روزرسانی شده</p>\",\n  \"excerpt\": \"خلاصه به‌روزرسانی شده\",\n  \"is_featured\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Article",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Articles by Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/category/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "category", "1"],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Search Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/search/دبی",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "search", "دبی"],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Featured Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/featured",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "featured"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Breaking News",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/breaking",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "breaking"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Latest Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/latest",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "latest"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Popular Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/popular",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "popular"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Increment View Count",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/1/view",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1", "view"]
+						}
+					}
+				},
+				{
+					"name": "Toggle Featured Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/1/feature",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1", "feature"]
+						}
+					}
+				},
+				{
+					"name": "Toggle Breaking Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/articles/1/breaking",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1", "breaking"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "categories"],
+							"query": [
+								{
+									"key": "active",
+									"value": "true",
+									"description": "فیلتر دسته‌بندی‌های فعال"
+								},
+								{
+									"key": "search",
+									"value": "اخبار",
+									"description": "جستجو در نام و توضیحات"
+								},
+								{
+									"key": "per_page",
+									"value": "15"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "categories", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create New Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "دسته‌بندی جدید",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "توضیحات دسته‌بندی جدید",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "is_active",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "sort_order",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "categories"]
+						}
+					}
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"نام به‌روزرسانی شده\",\n  \"description\": \"توضیحات به‌روزرسانی شده\",\n  \"is_active\": true,\n  \"sort_order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "categories", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "articles", "1"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://dubaivand.test",
+			"type": "string"
+		}
+	]
+}

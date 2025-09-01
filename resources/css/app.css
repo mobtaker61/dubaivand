@@ -1,0 +1,721 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Vazirmatn', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    direction: rtl;
+}
+
+/* Custom styles for RTL */
+.space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+}
+
+/* Persian text support */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.6;
+}
+
+/* Custom utilities for RTL */
+.text-right-rtl {
+    text-align: right;
+}
+
+.text-left-rtl {
+    text-align: left;
+}
+
+/* Custom spacing for RTL */
+.space-x-rtl-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+.space-x-rtl-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+.space-x-rtl-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 2rem;
+    margin-left: 0;
+}
+
+/* Enhanced Newspaper-style animations */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+/* Enhanced hover animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced pulse animations */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced typography for newspaper feel */
+.font-black {
+    font-weight: 900 !important;
+}
+
+.font-bold {
+    font-weight: 700 !important;
+}
+
+.font-semibold {
+    font-weight: 600 !important;
+}
+
+.font-medium {
+    font-weight: 500 !important;
+}
+
+/* Enhanced shadows for newspaper cards */
+.shadow-newspaper {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.shadow-newspaper-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.shadow-newspaper-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Breaking news pulse animation */
+@keyframes pulse-red {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-red {
+    animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Enhanced transform utilities */
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+.hover\:scale-110:hover {
+    transform: scale(1.1);
+}
+
+.hover\:-translate-y-1:hover {
+    transform: translateY(-0.25rem);
+}
+
+.hover\:-translate-y-2:hover {
+    transform: translateY(-0.5rem);
+}
+
+.hover\:translate-x-1:hover {
+    transform: translateX(0.25rem);
+}
+
+/* Newspaper-style borders */
+.border-newspaper {
+    border: 2px solid #e5e7eb;
+}
+
+.border-newspaper-thick {
+    border: 4px solid #1f2937;
+}
+
+.border-3 {
+    border-width: 3px;
+}
+
+/* Enhanced focus states */
+.focus-newspaper:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Custom gradients for newspaper theme */
+.bg-gradient-newspaper {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%) !important;
+}
+
+.bg-gradient-news {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #b91c1c 100%) !important;
+}
+
+/* Enhanced text shadows */
+.text-shadow-newspaper {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-newspaper-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom scrollbar for newspaper feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Enhanced loading states */
+.loading-newspaper {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Enhanced Newspaper-style badges */
+.badge-news {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-category {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+/* Enhanced button styles */
+.btn-newspaper {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-newspaper:hover {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-news {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-news:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Enhanced transition utilities */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.transition-colors {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Enhanced duration utilities */
+.duration-300 {
+    transition-duration: 300ms;
+}
+
+.duration-500 {
+    transition-duration: 500ms;
+}
+
+.duration-700 {
+    transition-duration: 700ms;
+}
+
+/* Enhanced backdrop blur */
+.backdrop-blur-sm {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+/* Hero Section Height Preservation */
+.hero-section {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Slider Styles */
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* Slider Navigation */
+.slider-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.slider-dot.active {
+    background-color: white;
+    transform: scale(1.25);
+}
+
+/* Slider Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.left {
+    left: 2rem;
+}
+
+.slider-arrow.right {
+    right: 2rem;
+}
+
+/* Article Info Overlay */
+.article-info-overlay {
+    position: absolute;
+    bottom: 8rem;
+    left: 2rem;
+    right: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 1s ease;
+}
+
+/* Enhanced opacity utilities */
+.opacity-5 {
+    opacity: 0.05;
+}
+
+.opacity-10 {
+    opacity: 0.1;
+}
+
+.opacity-20 {
+    opacity: 0.2;
+}
+
+.opacity-40 {
+    opacity: 0.4;
+}
+
+/* Enhanced border radius */
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.rounded-3xl {
+    border-radius: 1.5rem;
+}
+
+/* Enhanced height utilities */
+.h-\[500px\] {
+    height: 500px;
+}
+
+.h-\[500px\] {
+    height: 500px;
+}
+
+/* Fix for RTL spacing issues */
+.space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+}
+
+/* Fix for grid gaps in RTL */
+.gap-2 > * {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+.gap-3 > * {
+    margin-right: 0.75rem;
+    margin-left: 0;
+}
+
+.gap-4 > * {
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+.gap-6 > * {
+    margin-right: 1.5rem;
+    margin-left: 0;
+}
+
+.gap-8 > * {
+    margin-right: 2rem;
+    margin-left: 0;
+}
+
+/* Fix for flex spacing in RTL */
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 0.75rem;
+    margin-left: 0;
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 1.5rem;
+    margin-left: 0;
+}
+
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 2rem;
+    margin-left: 0;
+}
+
+/* Fix for prose content */
+.prose {
+    color: #374151;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #111827;
+    font-weight: 700;
+}
+
+.prose p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+}
+
+.prose ul {
+    list-style-type: disc;
+    padding-right: 1.5rem;
+}
+
+.prose ol {
+    list-style-type: decimal;
+    padding-right: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose a {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+.prose a:hover {
+    color: #1d4ed8;
+}
+
+/* Enhanced prose for article content */
+.prose-lg {
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+.prose-lg h1 {
+    font-size: 2.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose-lg h2 {
+    font-size: 1.875rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.prose-lg h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.prose-lg p {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.prose-lg blockquote {
+    font-style: italic;
+    border-right: 4px solid #3b82f6;
+    padding-right: 1rem;
+    margin: 1.5rem 0;
+}
+
+.prose-lg img {
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+}
+
+/* Fix for responsive design */
+@media (max-width: 768px) {
+    .text-4xl {
+        font-size: 2rem;
+    }
+
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+
+    .text-6xl {
+        font-size: 3rem;
+    }
+
+    .text-7xl {
+        font-size: 3.5rem;
+    }
+
+    .text-8xl {
+        font-size: 4rem;
+    }
+}
+
+/* Fix for image display */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for button hover states */
+button:hover, a:hover {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Fix for form elements */
+input, textarea, select {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+/* Fix for focus states */
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Enhanced responsive utilities */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Article Header with Background Image */
+.article-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.article-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.article-header-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.8) 50%, rgba(17, 24, 39, 0.9) 100%);
+    z-index: 2;
+}
+
+.article-header-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 3;
+}
+
+.article-header-content {
+    position: relative;
+    z-index: 4;
+}
