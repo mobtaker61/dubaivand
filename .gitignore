@@ -37,6 +37,7 @@ Thumbs.db
 /public/storage
 /storage/*.key
 /storage/pail
+/storage
 
 # Laravel specific
 Homestead.json
@@ -61,4 +62,3 @@ Dockerfile
 docker-compose.yml
 
 tests
-.htaccess
