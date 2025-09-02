@@ -38,6 +38,8 @@ Thumbs.db
 /storage/*.key
 /storage/pail
 /storage
+/storage/framework
+/storage/logs
 
 # Laravel specific
 Homestead.json
