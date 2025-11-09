@@ -30,7 +30,7 @@ Thumbs.db
 /auth.json
 
 # Build files
-/public/build
+#/public/build
 /public/hot
 
 # Storage
