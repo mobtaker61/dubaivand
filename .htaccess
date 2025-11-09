@@ -22,6 +22,12 @@
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
+    # serve Vite build & storage from public folder
+    RewriteRule ^build/(.*)$ public/build/$1 [L]
+    RewriteRule ^storage/(.*)$ public/storage/$1 [L]
+    RewriteRule ^favicon\.ico$ public/favicon.ico [L]
+    RewriteRule ^robots\.txt$ public/robots.txt [L]
+
     RewriteRule ^ index.php [L]
 </IfModule>
 
