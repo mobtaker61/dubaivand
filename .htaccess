@@ -1,28 +1,23 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # 1) سرو مستقیم محتواهای build/storage/... از داخل /public
+    # 1) استاتیک‌ها را از داخل /public سرو کن (بدون تغییر DocRoot)
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.+\.(?:css|js|mjs|map|json|png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|otf|mp4|webm|ogg))$ public/$1 [L]
+
+    # 2) مسیرهای خاص رایج
     RewriteRule ^build/(.*)$ public/build/$1 [L]
     RewriteRule ^storage/(.*)$ public/storage/$1 [L]
     RewriteRule ^favicon\.ico$ public/favicon.ico [L]
     RewriteRule ^robots\.txt$ public/robots.txt [L]
 
-    # 2) هندل کردن Authorization
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    # بقیهٔ قوانین فعلی‌ات (Authorization, slash و …) همین‌جا بمانند
 
-    # 3) حذف اسلش انتهایی اگر دایرکتوری نیست
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
-
-    # 4) فرستادن بقیه درخواست‌ها به لاراول
+    # در نهایت، فرستادن باقی درخواست‌ها به لاراول
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
 
-# اجازه دنبال‌کردن symlink در صورت نیاز
+# برای سیم‌لینک احتمالی
 Options +FollowSymLinks
-
-# هدرها و php-ini خود cPanel را اگر می‌خواهی نگه دار، بگذار پایین‌تر بمانند
