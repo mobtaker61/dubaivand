@@ -36,6 +36,8 @@
 # Disable directory browsing
 Options -Indexes
 
+Options +FollowSymLinks
+
 # Protect sensitive files
 <Files ".env">
     Order allow,deny
